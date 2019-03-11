@@ -11,7 +11,7 @@ import com.google.gson.JsonParser;
  * Microsoft Cognitive Services API and extracts some piece of information
  * from it.
  */
-class RecognizePhoto {
+public class RecognizePhoto {
 
 
     /**
