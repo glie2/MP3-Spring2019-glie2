@@ -158,6 +158,11 @@ public class RecognizePhoto {
         return false;
     }
 
+    /**
+     * something.
+     * @param json json string
+     * @return boolean value
+     */
     public static boolean isRick(final java.lang.String json) {
         return false;
     }
