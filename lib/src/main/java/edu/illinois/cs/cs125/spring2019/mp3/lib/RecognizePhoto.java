@@ -104,7 +104,7 @@ class RecognizePhoto {
      * least the provided confidence, you should return true. Otherwise false.
      * @param json the JSON string returned by the Microsoft Cognitive Services API
      * @param lowConfidence the minimum confidence required for this determination
-     * @returna boolean indicating whether the image contains a dog or false on failure
+     * @return boolean indicating whether the image contains a dog or false on failure
      */
     public static boolean isADog(final String json, final double lowConfidence) {
         if (json == null) {
