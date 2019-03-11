@@ -157,4 +157,8 @@ public class RecognizePhoto {
         }
         return false;
     }
+
+    public static boolean isRick(final java.lang.String json) {
+        return false;
+    }
 }
