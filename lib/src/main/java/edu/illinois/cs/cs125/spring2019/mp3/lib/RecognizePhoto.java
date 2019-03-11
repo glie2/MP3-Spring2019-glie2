@@ -1,7 +1,8 @@
 package edu.illinois.cs.cs125.spring2019.mp3.lib;
 
-import com.google.gson.Gson;
+
 import com.google.gson.JsonArray;
+
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -106,6 +107,24 @@ class RecognizePhoto {
      * @returna boolean indicating whether the image contains a dog or false on failure
      */
     public static boolean isADog(final String json, final double lowConfidence) {
+        if (json == null) {
+            return false;
+        }
+        //Standard parser stuff
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        //Get an array of tags
+        JsonArray tags = result.get("tags").getAsJsonArray();
+        //For-each was too hard to get syntax: standard for loop
+        for (int i = 0; i < tags.size(); i++) {
+            if (tags.get(i).getAsJsonObject().get("name").getAsString().equals("dog")) {
+
+                if (tags.get(i).getAsJsonObject().get("confidence").getAsDouble() >= lowConfidence) {
+                    return true;
+                }
+            }
+
+        }
         return false;
     }
 
@@ -118,6 +137,24 @@ class RecognizePhoto {
      * @return a boolean indicating whether the image contains a cat or false on failure
      */
     public static boolean isACat(final String json, final double lowConfidence) {
+        if (json == null) {
+            return false;
+        }
+        //Standard parser stuff
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+        //Get an array of tags
+        JsonArray tags = result.get("tags").getAsJsonArray();
+        //For-each was too hard to get syntax: standard for loop
+        for (int i = 0; i < tags.size(); i++) {
+            if (tags.get(i).getAsJsonObject().get("name").getAsString().equals("cat")) {
+
+                if (tags.get(i).getAsJsonObject().get("confidence").getAsDouble() >= lowConfidence) {
+                    return true;
+                }
+            }
+
+        }
         return false;
     }
 }
