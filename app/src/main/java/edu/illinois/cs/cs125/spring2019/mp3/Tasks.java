@@ -141,7 +141,7 @@ class Tasks {
 
         /** Default visual features to request. You may need to change this value. */
         private static final String MS_CV_API_DEFAULT_VISUAL_FEATURES =
-                "Categories,Description,Faces,ImageType,Color,Adult";
+                "Categories,Tags,Description,Faces,ImageType,Color,Adult,Metadata";
 
         /** Default visual features to request. */
         private static final String MS_CV_API_DEFAULT_LANGUAGE = "en";

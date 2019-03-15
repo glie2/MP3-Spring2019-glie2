@@ -70,9 +70,6 @@ public final class MainActivity extends AppCompatActivity {
 
     /** Whether we can write to public storage. */
     private boolean canWriteToPublicStorage = false;
-    /** Text view meta.*/
-    private TextView meta;
-
     /**
      * Run when our activity comes into view.
      *
@@ -325,11 +322,29 @@ public final class MainActivity extends AppCompatActivity {
         /*
          * Update the UI to display the string.
          */
+        TextView metadata = findViewById(R.id.textView_metadata);
+        TextView caption = findViewById(R.id.textView_caption);
+        metadata.setText(description);
+        metadata.setVisibility(View.VISIBLE);
+        caption.setText(RecognizePhoto.getCaption(jsonResult));
+        caption.setVisibility(View.VISIBLE);
 
         /*
          * Add code here to show the caption, show or hide the dog and cat icons,
          * and deal with Rick.
          */
+        ImageView catButton = findViewById(R.id.catButton);
+        ImageView dogButton = findViewById(R.id.dogButton);
+        if (RecognizePhoto.isACat(jsonResult, RECOGNITION_THRESHOLD)) {
+            catButton.setVisibility(View.VISIBLE);
+        } else {
+            catButton.setVisibility(View.GONE);
+        }
+        if (RecognizePhoto.isADog(jsonResult, RECOGNITION_THRESHOLD)) {
+            dogButton.setVisibility(View.VISIBLE);
+        } else {
+            dogButton.setVisibility(View.GONE);
+        }
     }
 
     /** Current bitmap we are working with. */
@@ -423,11 +438,15 @@ public final class MainActivity extends AppCompatActivity {
         enableOrDisableButtons(true);
 
         // Reset the displayed fields to default values. For you to finish!
-        /*
+
         if (resetInfo) {
+            findViewById(R.id.catButton).setVisibility(View.GONE);
+            findViewById(R.id.dogButton).setVisibility(View.GONE);
+            findViewById(R.id.textView_caption).setVisibility(View.GONE);
+            findViewById(R.id.textView_metadata).setVisibility(View.GONE);
 
         }
-        */
+
     }
 
     /**

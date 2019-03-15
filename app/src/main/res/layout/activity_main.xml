@@ -117,12 +117,36 @@
 
         </android.support.constraint.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/textView_metadata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView_caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
         <LinearLayout
             android:id="@+id/lightsHolder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dogButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/chuchu" />
+
+        <ImageView
+            android:id="@+id/catButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/xyz" />
 
         <ScrollView
             android:layout_width="match_parent"
