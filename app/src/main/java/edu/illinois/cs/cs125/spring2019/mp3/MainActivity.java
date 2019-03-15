@@ -70,6 +70,8 @@ public final class MainActivity extends AppCompatActivity {
 
     /** Whether we can write to public storage. */
     private boolean canWriteToPublicStorage = false;
+    /** Text view meta.*/
+    private TextView meta;
 
     /**
      * Run when our activity comes into view.

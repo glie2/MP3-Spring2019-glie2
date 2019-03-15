@@ -170,17 +170,15 @@ public class RecognizePhoto {
         //Standard parser stuff
         JsonParser parser = new JsonParser();
         JsonObject result = parser.parse(json).getAsJsonObject();
-
-        JsonArray captions = result.get("captions").getAsJsonArray();
-
-        for (int i = 0; i < captions.size(); i++) {
-
-            if (captions.get(i).getAsJsonObject().get("text").getAsString().equals("rick")) {
+        //Get an array of tags
+        JsonArray tags = result.get("tags").getAsJsonArray();
+        //For-each was too hard to get syntax: standard for loop
+        for (int i = 0; i < tags.size(); i++) {
+            if (tags.get(i).getAsJsonObject().get("name").getAsString().equals("person")) {
                 return true;
             }
+
         }
-
-
         return false;
     }
 
