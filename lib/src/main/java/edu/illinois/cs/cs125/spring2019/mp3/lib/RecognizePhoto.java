@@ -164,6 +164,24 @@ public class RecognizePhoto {
      * @return boolean value
      */
     public static boolean isRick(final java.lang.String json) {
+        if (json == null) {
+            return false;
+        }
+        //Standard parser stuff
+        JsonParser parser = new JsonParser();
+        JsonObject result = parser.parse(json).getAsJsonObject();
+
+        JsonArray captions = result.get("captions").getAsJsonArray();
+
+        for (int i = 0; i < captions.size(); i++) {
+
+            if (captions.get(i).getAsJsonObject().get("text").getAsString().equals("rick")) {
+                return true;
+            }
+        }
+
+
         return false;
     }
+
 }
